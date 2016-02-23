@@ -1,2 +1,10 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Login To Scholar</h1>
+<p>Please enter your username and password underneath to proceed!</p>
+
+<%= form_tag(login_path, {:class => "login"}) do %>
+  <%= label_tag(:email) %>
+  <%= text_field_tag(:email) %>
+  <%= label_tag(:password) %>
+  <%= password_field_tag(:password) %>
+  <%= submit_tag(:submit) %>
+<% end %>

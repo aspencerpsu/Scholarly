@@ -7,9 +7,10 @@
   <%= f.text_field(:name) %>
   <%= f.label("password") %>
   <%= f.password_field(:password) %>
-  <%= f.submit("Login To Scholar") %>
   <%= f.label("gender") %>
-  <%= f.radio(:gender, "male") %>
-  <%= f.radio(:gender, "female") %>
-  <%= f.submit(:sub) %>
+  <%= radio_button_tag(:gender, "male") %>
+  <%= label_tag("male") %>
+  <%= radio_button_tag(:gender, "female") %>
+  <%= label_tag("female") %>
+  <%= f.submit("log into scholar") %>
 <% end %>

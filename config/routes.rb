@@ -1,21 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  root 'home#index'
 
-  get 'users/create'
-
-  get 'users/destroy'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/new'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
+  resources :students
+  get "/mailto", to: 'home#mailto'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

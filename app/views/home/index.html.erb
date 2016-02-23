@@ -1,1 +1,22 @@
-index.html.erb
+<%= link_to "signup?", new_student_path %>
+<%= link_to "sign in?", login_path %>
+
+<h1>Welcome To ScholAPtic</h1>
+
+<p>Scholary is a free web service provided to set students with financial options to help</p>
+<p>alleviate the burden of searching for scholarships without a clear path/direction. Based on your demographics, age, and passion</p>
+<p>that's symetric with a hobby, you can find a scholarship that represents you and puts you in a position</p>
+<p>to have security affirmating yourself into your top college choice without the burden of toggling back and forth with collegiate activities and designated classtime</p>
+
+<div class="questions">
+	<%= form_tag("/mailto", :method => "get") do %>
+	  <%= label_tag(:query, "Questions? Email Akeem Spencer") %>
+	  <%= text_field_tag(:query) %>
+	  <%= label_tag(:message, "Email Address") %>
+	  <%= text_area_tag(:message, "Send your questions here", size: "24x6") %>
+	  <%= submit_tag("Send") %>
+	<% end %>
+</div>
+
+
+
