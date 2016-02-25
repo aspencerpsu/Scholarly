@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	flasher = document.getElementById('bright');
+	$(flasher).show().hide(3000);
+})

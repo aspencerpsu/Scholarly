@@ -1,0 +1,9 @@
+<h1>For new lenders, please enroll under: </h1>
+<%= form_for @provider do |v| %>
+	<%= v.label("Institution Name") %>
+	<%= v.text_field(:title) %>
+	<%= v.label("Industry") %>
+	<%= v.text_field(:industry) %>
+<% end %>
+
+<h1>For pre-existing lenders, please sign in here: </h1>

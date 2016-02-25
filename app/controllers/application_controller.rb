@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   		"Carl A Spartz Award" => 24,
   		"Church Member" => 25,
   		"Circle k Member" => 26,
-  		"Civil Ware Reenactment, Round Table, Related Areas" => 27,
+  		"Civil War Reenactment, Round Table, Related Areas" => 27,
   		"Class Officer" => 28,
   		"Club Officer" => 29,
   		"Numismatics" => 30,

@@ -31,18 +31,32 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    @student = Student.find_by(id: session[:student_id])
   end
 
   def update
+    @student = Student.find_by(id: session[:student_id])
+    @student.update(student_params_edit)
+    if @student.save
+      flash[:notice] = "I saved a few of your attributes"
+      redirect_to @student
+    else
+      flash[:notice] = "I couldn't get a chance to save most of your stuff"
+      render :edit
+    end
   end
 
   def more
-
+    
   end
 
   def show
     @student = current_user
+    arr << Meeting.all
+    arr << Event.all? 
+    @events_by_date = sort_events(arr)
   end
+
   private
   def student_params_new
     params.require(:student).permit(:name, :email, :password, :phone, :gender)
@@ -50,7 +64,7 @@ class StudentsController < ApplicationController
 
   private
   def student_params_edit
-    params.require(:student).permit(:zip, :address1, :address2, :home, :identity, :location)
+    params.require(:student).permit(:zip, :address1, :address2, :home, :indentity, :location, :cell)
   end
 
   private

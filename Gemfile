@@ -27,6 +27,8 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 gem 'json'
 gem 'httparty'
 
+gem 'calendrier', '~> 0.9.5'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
