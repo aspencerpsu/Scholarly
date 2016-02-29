@@ -1,0 +1,15 @@
+<div class="showing">
+	<% if !@student.followingfunds.find_by(namescholarship).exists? %>
+		<% form_for ([@student, @student.followingfunds.build], html:{remote: true}) do |f| %>
+			<%= hidden_field_tag(scholarship_id: scholarship.id) %>
+			<%= hidden_field_tag(student_id: @student.id) %>
+			<%= f.submit('follow?') %>
+		<% end %>
+	<% else %>
+		<% form_for([@student, @student.followingfunds.find_by(scholarship_id:scholarship.id)], html: {remote: true}) do |f| %>
+			<%= hidden_field_tag(scholarship_id: scholarship) %>
+			<%= hidden_field_tag(student_id: @student.id) %>
+			<%= f.submit('unfollow?') %>
+		<% end %>
+	<% end %>
+</div>

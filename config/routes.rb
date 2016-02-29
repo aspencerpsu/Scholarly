@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'scholarships_students/index'
+
+  get 'scholarships_students/create'
+
+  get 'scholarships_students/destroy'
+
   root 'home#index'
 
   resources :scholarships
   resources :students 
   resources :providers
-
+  post '/keepfollowing/:id', to: 'scholarships#follow', as: :follow
+  post  '/removescholarship/:id', to: 'scholarships#remove', as: :remove
 
   get '/provider', to: 'home#lender'
   get "/mailto", to: 'home#mailto'

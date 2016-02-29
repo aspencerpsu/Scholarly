@@ -52,9 +52,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = current_user
-    arr << Meeting.all
-    arr << Event.all? 
-    @events_by_date = sort_events(arr)
+    @scholarships = Scholarship.where('gpa' <= @student.gpa.to_s); 
   end
 
   private

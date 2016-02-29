@@ -3,14 +3,21 @@
 <h2>Please note: The following scholarship deadlines are approaching</h2>
 <h2>Take the time to review the following to determine your eligibility!</h2>
 <%= link_to "Your Profile isn't complete, finsih your profile to have a better opportunity to gain scholarships", edit_student_path %>
-<%= calendrier(:year => 2016, :month => 2, :day=> 25, :start_on_monday => true, :display => :week, :title => "My Month Of Scholarships". :builder => Lib::Calendrier::CalendrierBuilder::CustomBuilder) %>
-<% if count_sorted_events(@event_by_date, cells_begin_time, cell_end_time) > 0 %>
-	<ul>
-	<% yield sorted_events(@events_by_date, cell_begin_time, cell_end_time) do |obj| %>
-		<li><%= obj.title %></li>
-		<% end %>
-	</ul>
+<% @i = 1 %>
+
+<% @scholarships.each do |val, i| %>
+	<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
+		<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
+			<%= render partial: "scholarships/scholarship" locals: {scholarship: val} %>
+			<%= link_to "#{val.name}", follow_path(val.id), {remote: true,  method: 'post', id: 'catalogue'} %><br>
+		<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
+		<p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p>
+		<p>GPA worth: <div style="text-indent: 30px;"><%= val.gpa %></div></p>
+	</div>
+	<% @i = @i + 1 %>
 <% end %>
+
+
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
