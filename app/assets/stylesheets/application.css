@@ -24,3 +24,126 @@
 	opacity: 1;
 	display: none;
 }
+
+#logo {
+    width: 85px;
+    height: 55px;
+}
+
+.logo_placement{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+
+}
+
+.gpa_sch{
+	width: 150px;
+	height: 300px;
+	opacity: 1;
+}
+
+#modal{
+	width: 100%;
+	height: 100%;
+}
+
+#blind{
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	opacity: 0.9;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	background-repeat: repeat-y;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#boxing {
+  	width: 400px;
+    height: 321px;
+    background-color: #d1d1e0;
+    margin-top: -10%;
+    margin-left: -23%;
+    display: none;
+}
+
+#modal .window{
+	position: absolute;
+    z-index: 20000;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+    background-position: top;
+    background-attachment: fixed;
+    display: none;
+}
+
+#killuser{
+	text-decoration: none;
+    font-size: 30px;
+    text-align: justify;
+}
+
+#killuser:hover{
+	color: #ff0066;
+}
+
+#pills{
+	float: right;
+	font-family: times;
+	width: 500px;
+}
+
+#pills li{
+	display: inline-block;
+}
+
+.final_straw{
+	width: 300px;
+    height: 100px;
+    margin-left: 10px;
+}
+
+.final_straw h1{
+	font-size: 22px;
+    margin-top: 1%;
+}
+
+.close{
+	float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 0.8;
+    margin-top: 48%;
+}
+
+.questions{
+	width: 300px;
+	height: 300px;
+}
+
+.panel-footer{
+	background-color: #8c8c8c;
+	width: 100%;
+	height: 200px;
+}
+
+.scholarAPtic{
+	margin: 0 auto;
+}
+

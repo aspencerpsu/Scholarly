@@ -13,9 +13,47 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require jquery.turbolinks
+//= require bootstrap
 //= require_tree .
 
+
 $(document).ready(function(){
+
+	var activeWindow;
+
+	function closeModal() {
+    	$('.window').fadeOut(500, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
+    	$('#blind').fadeOut(500, function(){ $(this).remove(); });
+	}
+
 	flasher = document.getElementById('bright');
 	$(flasher).show().hide(3000);
-})
+
+	$('#termie').on('click', function(e){
+		e.preventDefault();
+		acitveWindow = $('.window')
+		.css('top','41%')
+		.css('left', '57%')
+		.css('opacity', 0)
+		.css('display', 'block')
+		.fadeTo(500, 0.8);
+		$('#boxing').css('display', 'block');
+		$('body').append('<div id="blind"></div>');
+		$('#blind').css('position', 'fixed')
+		$('#modal')
+		        .find('#blind')
+		        .css('opacity', '0')
+		        .fadeTo(500, 0.8)
+		        .on('click', function(){
+		            closeModal();
+		     });
+	});
+
+
+	$('.close').on('click', function(e){
+		e.preventDefault();
+		closeModal();
+	});
+});
