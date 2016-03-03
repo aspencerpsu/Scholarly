@@ -37,12 +37,15 @@
 <% @i = 1 %>
 <% @scholarships.each do |val| %>
 	<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
+
 		<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
-			<%= link_to "#{val.name}", follow_path(val.id), {remote: true,  method: 'post', id: 'catalogue'} %><br>
-			<%= render partial: "scholarships_students/tracking", locals: {val: val} %>
+
+		<p>Name: <div style="text-indent: 30px;"><%= val.name %></div></p>
 		<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
 		<p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p>
 		<p>GPA worth: <div style="text-indent: 30px;"><%= val.gpa %></div></p>
+		<%= render partial: "scholarships_students/tracking", locals: {val: val} %>
+		
 	</div>
 	<% @i = @i + 1 %>
 <% end %>

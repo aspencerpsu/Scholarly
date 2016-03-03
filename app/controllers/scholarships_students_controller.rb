@@ -1,5 +1,6 @@
 class ScholarshipsStudentsController < ApplicationController
   def index
+
   end
 
   def new
@@ -20,11 +21,9 @@ class ScholarshipsStudentsController < ApplicationController
     @i = 0
     @student = current_user
   	@val = Scholarship.find(params[:scholarship_id])
-    @j_tab = ScholarshipsStudent.find_by(scholarship_id: params[:scholarship_id], student_id: @student.id)
   	@student.followingfunds.delete(params[:scholarship_id])
   	respond_to do |format|
-      format.html{ render 'students/show', :locals => {:val => @val, :i => @i}}
-  		format.js{@val = Scholarship.find(params[:scholarship_id])}
+  		format.js{:locals => {@val = Scholarship.find(params[:scholarship_id])}}
   	end
   end
 end
