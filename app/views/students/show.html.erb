@@ -1,15 +1,45 @@
-<h1>Welcome Back <%= @student.name %></h1>
+<header>
+	<nav class="navbar navbar-default navbar static top navbar inverse">
+		<div class="container-fluid">
+			<div class="logo_placement">
+				<%= link_to image_tag("/assets/hearts.png", :alt => 'logo', :title => 'home', :id => 'logo', :class => 'navbar-brand'), "/" %> 
+			</div>
+			<ul class="nav pills nav navbar-nav navbar-left" id="pills">
+				<li></li>
+				<li><%= link_to "Delete My Account", terminate_path, html_options={id: 'termie', remote: true} %></li>
+				<li><%= link_to "Logout?", logout_path %></li>
+				<li><%= link_to "Contact Us", contact_path %></li>
+			</ul>	
+		</div>
+	</nav>
+</header>
 
-<h2>Please note: The following scholarship deadlines are approaching</h2>
-<h2>Take the time to review the following to determine your eligibility!</h2>
-<%= link_to "Your Profile isn't complete, finsih your profile to have a better opportunity to gain scholarships", edit_student_path %>
+<h1>Welcome back <%= @student.name %>!</h1>
+
+<div id="modal">
+	<div class = "window">
+		<div id="boxing">
+			<%= render 'students/terminate' %>
+			<a href="#stuff" class="close">Close?</a>
+		</div>
+	</div>
+</div>
+
+
+<% if @student.gpa.nil? || @student.location.nil? %>
+	<h1>Your profile isn't completed, please take the time to finish your profile to gain more chances for funding</h1>
+	<%= link_to "Finish My Profile!", edit_student_path %>
+<% else %>
+	<h2>Please note: The following scholarship deadlines are approaching</h2>
+	<h2>Take the time to review the following to determine your eligibility!</h2>
+<% end %>
+
 <% @i = 1 %>
-
-<% @scholarships.each do |val, i| %>
+<% @scholarships.each do |val| %>
 	<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
 		<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
-			<%= render partial: "scholarships/scholarship" locals: {scholarship: val} %>
 			<%= link_to "#{val.name}", follow_path(val.id), {remote: true,  method: 'post', id: 'catalogue'} %><br>
+			<%= render partial: "scholarships_students/tracking", locals: {val: val} %>
 		<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
 		<p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p>
 		<p>GPA worth: <div style="text-indent: 30px;"><%= val.gpa %></div></p>
@@ -18,11 +48,4 @@
 <% end %>
 
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<%= link_to "Logout?", logout_path %>

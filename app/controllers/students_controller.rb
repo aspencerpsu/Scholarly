@@ -23,10 +23,22 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    if @student
+    @student = current_user
+    if @student 
+      flash[:notice] = 'We appreciate the time you\'ve spent with scholarships'
       @student.delete
       session.clear
       redirect_to root_path
+    else
+      flash[:notice] = "We've retained your credentials"
+      render :show
+    end
+  end
+
+  def terminate
+    @user = current_user
+    respond_to do |u|
+      u.js{}
     end
   end
 
@@ -53,6 +65,7 @@ class StudentsController < ApplicationController
   def show
     @student = current_user
     @scholarships = Scholarship.where('gpa' <= @student.gpa.to_s); 
+    @savethang = ScholarshipsStudent.new
   end
 
   private

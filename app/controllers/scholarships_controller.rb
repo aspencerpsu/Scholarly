@@ -12,6 +12,7 @@ class ScholarshipsController < ApplicationController
   def instance
 
   end
+  
   def follow
   	@student = current_user
   	@scholarship = Scholarship.find(params[:id])
@@ -27,8 +28,8 @@ class ScholarshipsController < ApplicationController
 
   def remove
   	@student = current_user
-  	@scholarship = Scholarship.find(params[:id])
-  	@scholarship.delete
-  	redirect_to @student
+    @scholarship = Scholarship.find(params[:id])
+    @scholarship.delete
+    redirect_to @student
   end
 end

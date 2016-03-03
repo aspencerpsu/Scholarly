@@ -1,23 +1,55 @@
-<%= link_to "signup?", new_student_path %>
-<%= link_to "sign in?", login_path %>
-<%= link_to "For Donors", new_provider_path %>
 
-<h1>Welcome To ScholAptic</h1>
+<header>
+	<nav class="navbar navbar-default navbar static top navbar inverse">
+		<div class="container-fluid">
+			<div class="logo_placement">
+				<%= link_to image_tag("/assets/hearts.png", :alt => 'logo', :title => 'home', :id => 'logo', :class => 'navbar-brand'), "/" %> 
+			</div>
+			<ul class="nav pills nav navbar-nav navbar-left" id="pills">
+				<li><%= link_to "Sign Up?", new_student_path %></li>
+				<li><%= link_to "Sign In?", login_path %></li>
+				<li><%= link_to "Interested Donors", new_provider_path %></li>
+				
+			</ul>	
+		</div>
+	</nav>
+</header>
 
-<p>Scholary is a free web service provided to set students with financial options to help</p>
-<p>alleviate the burden of searching for scholarships without a clear path/direction. Based on your demographics, age, and passion</p>
-<p>that's symetric with a hobby, you can find a scholarship that represents you and puts you in a position</p>
-<p>to have security affirmating yourself into your top college choice without the burden of toggling back and forth with collegiate activities and designated classtime</p>
-
-<div class="questions">
-	<%= form_tag("/mailto", :method => "get") do %>
-	  <%= label_tag(:query, "Questions? Email Akeem Spencer") %>
-	  <%= text_field_tag(:query) %>
-	  <%= label_tag(:message, "Email Address") %>
-	  <%= text_area_tag(:message, "Send your questions here", size: "24x6") %>
-	  <%= submit_tag("Send") %>
-	<% end %>
+<div class="row">
+	<section class="page-header scholarAPPtitude">
+		<h1>Welcome To ScholarAPPtitude</h1>
+	</section>
 </div>
+
+<div class="row">
+	<div class="introduction">
+		<p>Scholary is a free web service provided to set students with financial options to help alleviate the burden of searching for scholarships without a clear path/direction. </p>
+		<p>Based on your demographics, age, and passion that's symetric with a hobby, you can find a scholarship that represents you and puts you in a positionto have security affirmating yourself into your top college choice without the burden of toggling back and forth with collegiate activities and designated classtime</p>
+	</div>
+	<div class="ideal_frames">
+		<%= image_tag("/assets/africanAmericans.jpg") %>
+	</div>
+</div>
+<hr>
+<hr>
+
+<div class="row">
+	<div class="introduction-2">
+		<p>Our ability to tie and integrate high school students of color into a scholarship that communicates what their needs are, is only a recipe for success</p>
+		<p>Our previous and new candidates are strident go-getters and achieved the full potential of what they are looking for</p>
+		<p> Let ScholarApTitude become a place for seeking funds and let us stick you to a fund that represents you the student become successfully acclimated to a scholarship/grant/loan!</p>
+	</div>
+	<div class="ideal_frames">
+		<%= image_tag("/assets/100blackmen.jpg", :alt => 'image of students', :title => 'hs2', :class => 'students') %>
+	</div>
+</div>
+
+<footer>
+	<div class="panel-footer">
+		<span style="color:white;"><span style="font-size: 28px">©</span>Copyright to Akeem Spencer and NYCDA</span>
+	</div>	
+</footer>
+
 
 
 

@@ -1,0 +1,19 @@
+<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
+<%= link_to "#{@val.name}", follow_path(val.id), {remote: true,  method: 'post', id: 'catalogue'} %><br>
+
+
+
+
+<%= form_for(ScholarshipsStudent.find_by(scholarship_id: @val.id, student_id: @student.id), html:{remote: true, method: :delete}) do |f| %>
+
+	<%= hidden_field_tag(:scholarship_id, @val.id) %>
+	<%= f.submit('unfollow?') %>
+<% end %>
+
+
+
+
+
+<p>Deadline: <div style="text-indent: 30px;"><%= @val.deadline %></div></p>
+<p>Value:  <div style="text-indent: 30px;"><%= @val.value %></div></p>
+<p>GPA worth: <div style="text-indent: 30px;"><%= @val.gpa %></div></p>

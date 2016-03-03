@@ -1,0 +1,7 @@
+console.log('I am created');
+$('#gpa_sch<%= @val.id %>').html("<%= j(render partial: 'scholarships_students/follow', locals: {val: @val}) %>");
+
+// $('#edit_scholarships_student_<%= @j_tab.id %>').on('ajax:success', function(){
+// 	console.log('I was successfully made hallelujah!!!');
+// 	$(this).html("<%= j(render partial: 'scholarships_students/tracking') %>");}
+// );

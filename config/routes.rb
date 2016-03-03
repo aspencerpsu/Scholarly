@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'scholarships_students/index'
-
-  get 'scholarships_students/create'
-
-  get 'scholarships_students/destroy'
-
   root 'home#index'
 
   resources :scholarships
+  resources :scholarships_students
   resources :students 
   resources :providers
   post '/keepfollowing/:id', to: 'scholarships#follow', as: :follow
   post  '/removescholarship/:id', to: 'scholarships#remove', as: :remove
+  get '/terminateuser', to: 'students#terminate', as: :terminate
 
   get '/provider', to: 'home#lender'
   get "/mailto", to: 'home#mailto'
+  get '/contact', to: 'home#contact', as: 'contact'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

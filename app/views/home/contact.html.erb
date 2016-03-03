@@ -1,0 +1,9 @@
+<div class="questions">
+	<%= form_tag("/mailto", :method => "post") do %>
+	  <%= label_tag(:query, "Questions? Email Akeem Spencer") %>
+	  <%= text_field_tag(:query) %>
+	  <%= label_tag(:message, "Email Address") %>
+	  <%= text_area_tag(:message, "Send your questions here", size: "24x6") %>
+	  <%= submit_tag("Send") %>
+	<% end %>
+</div>

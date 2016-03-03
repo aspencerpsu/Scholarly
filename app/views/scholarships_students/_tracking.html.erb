@@ -1,0 +1,18 @@
+<div id="gpa_sch<%= val.id %>">
+
+	<% if ScholarshipsStudent.find_by(scholarship_id: val.id, student_id: @student.id).nil? %>
+
+		<%= form_for(@savethang, remote: true) do |f| %>
+			<%= hidden_field_tag(:scholarship, val.id) %>
+			<%= hidden_field_tag(:student_id, @student.id) %>
+			<%= f.submit('follow?') %>
+		<% end %>
+		
+	<% else %>
+
+		<%= form_for(ScholarshipsStudent.find_by(scholarship_id: val.id, student_id: @student.id), html:{method: :delete},remote: true) do |f| %>
+			<%= hidden_field_tag(:scholarship_id, val.id) %>
+			<%= f.submit('unfollow?') %>
+		<% end %>
+	<% end %>
+</div>

@@ -51,7 +51,7 @@ $(document).ready(function(){
 		     });
 	});
 
-
+	$('introduction').css('')
 	$('.close').on('click', function(e){
 		e.preventDefault();
 		closeModal();

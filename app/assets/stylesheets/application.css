@@ -26,8 +26,8 @@
 }
 
 #logo {
-    width: 85px;
-    height: 55px;
+    width: 110px;
+    height: 80px;
 }
 
 .logo_placement{
@@ -39,10 +39,11 @@ body{
 
 }
 
-.gpa_sch{
-	width: 150px;
-	height: 300px;
-	opacity: 1;
+.gpa_sch {
+    width: 221px;
+    height: 300px;
+    opacity: 1;
+    margin-left: 10%;
 }
 
 #modal{
@@ -105,8 +106,20 @@ body{
 	width: 500px;
 }
 
+#pills:hover{
+	background-color: #cc0052;
+}
+
+#pills li:hover{
+	background-color:  #ffcccc;
+}
+
 #pills li{
 	display: inline-block;
+}
+
+.scholarAPtic{
+	text-align: center;
 }
 
 .final_straw{
@@ -147,3 +160,48 @@ body{
 	margin: 0 auto;
 }
 
+.panel-footer{
+	background-color: #8c8c8c;
+	width: 100%;
+	height: 68px;
+	margin-top: 10%;
+	text-align: center;
+}
+
+section.page-header.scholarAPPtitude {
+    text-align: center;
+    text-shadow: 2px 2px #ff0066;
+}
+
+.introduction {
+    width: 300px;
+    line-height: 23px;
+    margin-left: 40px;
+}
+
+.introduction-2 {
+    width: 300px;
+    margin-left: 46px;
+    line-height: 22px;
+}
+
+.ideal_frames {
+    float: right;
+    width: 400px;
+    margin-top: -21%;
+    background: linear-gradient;
+}
+
+.ideal_frames > img {
+    width: 100%;
+    height: 100%;
+    border: 5px solid black;
+}
+
+.panel-footer {
+    background-color: #8c8c8c;
+    width: 100%;
+    height: 68px;
+    margin-top: 10%;
+    text-align: center;
+    margin-left: 13.866189px;

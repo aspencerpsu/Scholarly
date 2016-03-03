@@ -1,0 +1,35 @@
+var activeWindow;
+
+function closeModal() {
+    activeWindow.fadeOut(250, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
+    $('#blind').fadeOut(250,    function(){ $(this).remove(); });
+}
+
+
+$('#termie').on('click'function(e){
+	e.preventDefault();
+	var $id = 'dialog';
+	acitveWindow = $('.window#'+ $id)
+	.css('top','50%')
+	.css('left', '50%')
+	.css('opacity', 0)
+	.fadeTo(500, 0.8)
+	$('body').css('background-color', '#9494b8');
+	$('.boxing').css('display', 'show');
+});
+
+$('#modal')
+        .append('<div id="blind"></div>')
+        .find('#blind')
+        .css('opacity', '0')
+        .fadeTo(500, 0.8)
+        .click(function(e){
+            closeModal();
+     });
+
+$('a.close').on('click', function(e){
+	e.preventDefault();
+	closeModal();
+});
+
+
