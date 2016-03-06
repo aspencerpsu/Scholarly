@@ -23,7 +23,7 @@ class ScholarshipsStudentsController < ApplicationController
   	@val = Scholarship.find(params[:scholarship_id])
   	@student.followingfunds.delete(params[:scholarship_id])
   	respond_to do |format|
-  		format.js{:locals => {@val = Scholarship.find(params[:scholarship_id])}}
+  		format.js{ :locals => {@val = Scholarship.find(params[:scholarship_id])} }
   	end
   end
 end
