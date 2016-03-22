@@ -1,4 +1,11 @@
 console.log('I am created');
-$('j(#gpa_sch<%= @val.id %> > input:eq(2))').on('click', function(){
-	$('j(#gpa_sch<%= @val.id %>)').remove();
+var scholarship = $('#gpa_sch<%= @valor.id %>');
+
+var flasher = document.getElementById('bright');
+
+scholarship.hide('slow', function(){
+	$(this).remove();
 });
+
+
+

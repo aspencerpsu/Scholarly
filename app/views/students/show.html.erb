@@ -36,10 +36,9 @@
 
 <% @i = 1 %>
 <% @scholarships.each do |val| %>
+
 	<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
-
 		<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
-
 		<p>Name: <div style="text-indent: 30px;"><%= val.name %></div></p>
 		<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
 		<p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p>
@@ -50,5 +49,8 @@
 	<% @i = @i + 1 %>
 <% end %>
 
-
-
+<h1>Calendar of Scholarships</h1>
+<h4>Here's a listing of the available scholarships on your calendar</h4>
+<div id="event_calendar">
+	<%= render partial: "calendar", locals: {events: @events} %>
+</div>

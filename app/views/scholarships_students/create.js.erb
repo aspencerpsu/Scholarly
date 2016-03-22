@@ -1,8 +1,27 @@
-console.log('I was clicked!');
+correct_setting = "<%= j(@correct_date) %>";
+$('#gpa_sch<%= @val.id %>').html("<%= j(render partial: 'scholarships_students/unfollow', locals: {val: @val, i: @i}) %>");
 
-$('#gpa_sch<%= @val.id %>').html("<%= j(render partial: 'scholarships_students/unfollow', locals: {val: @val}) %>");
+var my_day = document.getElementsByClassName('day <%= j(@together) %>');
+// receive the text content within the cell grid
+var visual_cal = my_day[0].childNodes[0].textContent;
+// create the node li to add the scholarship the user wants to follow;
+var new_li = document.createElement('li');
+// List of the scholarships the user assigned to on file
+var the_list = my_day[0].childNodes[1].getElementsByTagName('ul');
+// Strip the whitespace so the date UTC is strictly a string
+var exact_date = visual_cal.trim();
 
-// $('#new_scholarship_student').on('ajax:success',function(){
-// 	console.log('This was successfully called with ajax by the client');
-// 	$(this).html("<%= j(render partial: 'scholarships_students/tracking', locals: {val: @val}) %>");
-// )};
+var name = "<%= j(@sch_name) %>";
+
+new_li.innerHTML = name;
+
+if (correct_setting == exact_date){
+	new_li.setAttribute('style', 'color:red; font-weight:bold;');
+	the_list[0].appendChild(new_li);
+}
+console.log(my_day);
+
+conole.log(correct_setting);
+console.log(visual_cal);
+
+

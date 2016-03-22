@@ -1,4 +1,3 @@
-<div id="gpa_sch<%= val.id %>">
 
 	<% if ScholarshipsStudent.find_by(scholarship_id: val.id, student_id: @student.id).nil? %>
 
@@ -15,4 +14,3 @@
 			<%= f.submit('unfollow?') %>
 		<% end %>
 	<% end %>
-</div>

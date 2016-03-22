@@ -65,6 +65,7 @@ class StudentsController < ApplicationController
   def show
     @student = current_user
     @scholarships = Scholarship.where('gpa' <= @student.gpa.to_s); 
+    @events = @student.followingfunds.all
     @savethang = ScholarshipsStudent.new
   end
 
@@ -75,11 +76,11 @@ class StudentsController < ApplicationController
 
   private
   def student_params_edit
-    params.require(:student).permit(:zip, :address1, :address2, :home, :indentity, :location, :cell)
+    params.require(:student).permit(:zip, :address1, :address2, :home, :indentity, :location, :cell, :gpa)
   end
 
   private
   def student_params_more
-    params.require(:student).permit(:activities, :gpa, :majors, :college)
+    params.require(:student).permit(:activities, :majors, :college)
   end
 end

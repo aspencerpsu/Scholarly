@@ -8,9 +8,29 @@ class ScholarshipsStudentsController < ApplicationController
   end
 
   def create
-    @i = 0
-  	@val = Scholarship.find(params[:scholarship])
+    # @@i = 0
+  	@val = Scholarship.find(params[:scholarship]);
   	@student = current_user
+    @correct_date = @val.deadline.to_s.split[0];
+    @sch_name = @val.name;
+    @wday = @val.deadline.wday.to_s
+    if @val.deadline < Date.today() && @val.deadline.month == Date.today.month
+      @heuristic = " past"
+      @month = "\scurrent-month"
+      @together = "wday-"+@wday << @heuristic << @month
+    elsif @val.deadline < Date.today() && @val.deadline.month < Date.today.month
+      @heuristic = "\spast"
+      @month = "\sprev-month"
+      @together = "wday-"+@wday << @heuristic << @month
+    elsif @val.deadline > Date.today() && @val.deadline.month > Date.today.month
+      @heuristic = "\sfuture"
+      @month = "\snext-month"
+      @together = "wday-"+@wday << @heuristic << @month
+    else 
+      @heuristic = "\stoday"
+      @month = "\scurrent-month"
+      @together = "wday-"+@wday << @heuristic << @month
+    end
   	@savethang = @student.followingfunds << @val
   		respond_to do |format|
   			format.js{}
@@ -18,12 +38,13 @@ class ScholarshipsStudentsController < ApplicationController
   end
 
   def destroy
-    @i = 0
+    # @@i = 0
     @student = current_user
-  	@val = Scholarship.find(params[:scholarship_id])
-  	@student.followingfunds.delete(params[:scholarship_id])
+  	@valor = Scholarship.find(params[:scholarship_id])
+    @student.followingfunds
   	respond_to do |format|
-  		format.js{ :locals => {@val = Scholarship.find(params[:scholarship_id])} }
+  		format.js { }
   	end
+    @student.followingfunds.delete(params[:scholarship_id])
   end
 end

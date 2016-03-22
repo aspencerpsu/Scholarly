@@ -1,0 +1,14 @@
+<%= month_calendar events: @events do |date, meetings| %>
+	<%= date %>
+	<div>
+		<ul>
+	<% meetings.each do |meetings| %>
+		<% if Date.today >= meetings.deadline %>
+			<li><span style="color: red;"><strong><%= meetings.name %></strong></span></li>
+		<% else %>
+			<li><strong><%= meetings.name %></strong></li>
+		<% end %>
+	<% end %>
+		</ul>
+	</div>
+<% end %>

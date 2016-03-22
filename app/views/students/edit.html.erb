@@ -1,19 +1,21 @@
 <h1>List The Remaining Credentials For Yourself User!</h1>
 
 <%= form_for @student do |t| %>
-	<%= t.label("Your State or Province") %>
+	<h2><%= t.label("Your State or Province") %></h2>
 	<%= t.text_field(:location) %>
-	<%= t.label("address 1") %>
+	<h2><%= t.label("address 1") %></h2>
 	<%= t.text_field(:address1) %>
-	<%= t.label("address 2") %>
+	<h3><%= t.label("address 2") %></h3>
 	<%= t.text_field(:address2) %>
-	<%= t.label("cell number") %>
+	<h3><%= t.label("cell number") %></h3>
 	<%= t.number_field(:cell) %>
-	<%= t.label("zip code") %>
+	<h3><%= t.label("zip code") %></h3>
 	<%= t.number_field(:zip) %>
-	<%= t.label("home number") %>
+	<h3><%= t.label("home number") %></h3>
 	<%= t.number_field(:home) %>
-	<%= t.label("I identify as:") %>
+	<h3><%= t.label("I identify as:") %></h3>
 	<%= t.select(:identity, options_for_select(["native american", "black/african_american", "hispanic", "asian", ]), {:include_blank => true, :prompt => "select your demographic"}) %>
+	<h3><%= t.label("your current gpa") %></h3>
+	<%= t.number_field :gpa, :step => 0.01 %>
 	<%= t.submit(:evaluate) %>
 <% end %>
