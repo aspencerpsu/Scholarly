@@ -32,6 +32,10 @@ gem 'jquery-turbolinks'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# A calendar for the dates of when the scholarships deadlines are approaching!!!!
+
+gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
