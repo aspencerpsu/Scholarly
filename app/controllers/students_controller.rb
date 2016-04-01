@@ -64,7 +64,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = current_user
-    @scholarships = Scholarship.where('gpa' <= @student.gpa.to_s); 
+    @scholarships = Scholarship.where('gpa' <= @student.gpa.to_s).order('name'); 
     # Scholarship.last.deadline.beginning_of_week.at_midday
     @events = @student.followingfunds.all
     @savethang = ScholarshipsStudent.new
