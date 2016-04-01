@@ -37,6 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
 
+gem 'jwt', '~> 1.5', '>= 1.5.4'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
