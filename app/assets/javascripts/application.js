@@ -27,7 +27,7 @@ $(document).ready(function(){
     	$('#blind').fadeOut(500, function(){ $(this).remove(); });
 	};
 
-	function closeCal(){
+	function closeList(){
 		$('.window_pane')
 
 		.animate({marginLeft: "-40%",
@@ -91,7 +91,7 @@ $(document).ready(function(){
 
 	$('.close_side').on('click', function(e){
 		e.preventDefault();
-		closeCal();
+		closeList();
 	});
 
 	var progress = document.getElementsByClassName('progress');
@@ -100,29 +100,36 @@ $(document).ready(function(){
 		progress[i].style = "margin: 25px;"
 	};
 
-	$('.select_form').change(function(){
-		student = document.getElementsByTagName('select')[0].getAttribute('id');
-		$.ajax({
-				url: "http://localhost:3000/scholarships_students/".concat(student),
-				type: "GET",
-				dataType: "script",
-				cache: true,
-				success: function(){alert('success!')},
-				// data: {select_tag_value: $('#form option:selected').text()}
-			})
-		});
-
 
 });
+
+function closeList(){
+		$('.window_pane')
+
+		.animate({marginLeft: "-40%",
+			marginTop: "-35%"}, {duration: 1000, 
+				specialEasing:{
+					marginLeft: "linear",
+					marginTop: "linear"
+				}});
+		$('#blind').fadeOut(1000, function(){$(this).remove(); });
+	};
+
 	var list = {
+
 		order: function(){
+			var student = document.getElementsByClassName('form-control')[0].id;
 			$.ajax({
-				url: "http://localhost:3000/scholarships_students/".concat(student),
+				url: "http://localhost:3005/scholarships_students/".concat(student),
 				type: "GET",
 				dataType: "script",
 				cache: true,
-				success: function(){alert('success!')},
-				// data: {select_tag_value: $('#form option:selected').text()}
+				success: function(){
+
+					$('.new_close_side').on('click', function(e){
+						e.preventDefault();
+						closeList();
+					});},
 			})
 		}
 	}
