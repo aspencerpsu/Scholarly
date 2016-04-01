@@ -1,4 +1,4 @@
-Sort By: <select class="form-control select_form" id=<%= @student.id.to_s %>>
+Sort By: <select class="form-control select_form" id=<%= @student.id.to_s %> onchange="list.order()">
 			<option id="deadline">Deadline</option>
 			<option id="value">Value</option>
 			<option id="value_opposite">Value Smallest</option>

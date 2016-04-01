@@ -1,0 +1,1 @@
+Json.extract! @scholarship, :id, :name, :value, :deadline, :content, :scholarship

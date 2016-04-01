@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: post_app_production
-  username: post_app
+  database: dnua9ugg80ara
+  username: fuzynubcyzsgyk
+  port: 5432
   password: <%= ENV['POST_APP_DATABASE_PASSWORD'] %>
