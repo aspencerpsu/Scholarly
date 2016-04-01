@@ -1,7 +1,7 @@
-<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
+<h2><b> Scholarship <%= ind %>: </b></h2>
 
-<p>Name: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
-<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
+<p>Name: <div style="text-indent: 30px;"><%= val.name %></div></p>
+<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline.to_date %></div></p>
 <p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p>
 <p>GPA worth: <div style="text-indent: 30px;"><%= val.gpa %></div></p>
 

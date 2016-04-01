@@ -1,3 +1,41 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// background-color is set to white
+
+$background-white: #ffffff;
+
+.window_pane{
+	width: 33%;
+	height: 100vh;
+	margin-left: -40%;
+	margin-top: -35%;
+	position: absolute;
+	top: -5px;
+	left: 0px;
+	background-color: $background-white;
+	overflow-y: scroll;
+	a{
+		margin-top: -85px;
+		margin-left: 74%;
+		font-size: 25px;
+	}
+}
+
+
+.day_instance{
+	width: 55%;
+	ul{
+		li{
+		}
+	}
+}
+
+
+
+// For the calendar, let's make it look somewhat decent here
+
+.right-jus{
+	text-align: center;
+	text-align-last: right;
+}

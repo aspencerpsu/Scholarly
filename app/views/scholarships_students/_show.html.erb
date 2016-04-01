@@ -1,0 +1,28 @@
+
+		<%= render partial: "scholarships_students/index", locals: {scholarships: scholarships, student: student.id} %>
+		<a href="#" class="close_side"><div class="glyphicon glyphicon-remove close_side" style="width=30px;height=30px;float:right;">
+		</div></a>
+		<div class="page-header">
+			<h1>Unique scholarships</h1>
+						<small>Each provides details compatible to who you are and the amounts substantial to your profile</small>
+		</div>
+	<% scholarships.each_with_index do |val, ind| %>
+			<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
+				<% percentage = (val.studentfollowers.length/Student.all.length)*100 %>
+				<th><h2><b> Scholarship <%= "#{ind + 1}" %>: </b></h2></th>
+					<td><p>Name: <div style="text-indent: 30px;"><%= val.name %></div></p></td>
+					<td><p>Deadline: <div style="text-indent: 30px;"><%= val.deadline.to_date %></div></p></td>
+					<td><p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p></td>
+					<td><p>GPA worth: <div style="text-indent: 30px;"><%= val.gpa %></div></p></td>
+					<td><%= render partial: "scholarships_students/tracking", locals: {val: val, ind: (ind + 1)} %>
+					</td>
+					<td>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=<%= percentage.to_s %> aria-valuemin="0" aria-valuemax="100" style="width: #{percentage}%; min-width: 7em; font-size: 71%">
+								<%= ((val.studentfollowers.length/Student.all.length)*100).to_s %>% of students have applied
+							</div>
+						</div>
+					</td>
+			</div>
+	<% end %>
+		<a href="#"class="close_side">Go Back</a>

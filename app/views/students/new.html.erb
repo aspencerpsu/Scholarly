@@ -1,16 +1,16 @@
 <h1>Create A New Account!</h1>
 
 <%= form_for @student do |f| %>
-  <%= f.label("email") %>
+  <h5><%= f.label("email") %><h5>
   <%= f.text_field(:email) %>
-  <%= f.label("name") %>
+  <h5><%= f.label("name") %></h5>
   <%= f.text_field(:name) %>
-  <%= f.label("password") %>
+  <h5><%= f.label("password") %></h5>
   <%= f.password_field(:password) %>
-  <%= f.label("gender") %>
+  <h5><%= f.label("gender") %></h5>
   <%= f.radio_button(:gender, "male") %>
-  <%= f.label("male") %>
+  <h5><%= f.label("male") %></h5>
   <%= f.radio_button(:gender, "female") %>
-  <%= f.label("female") %>
+  <h5><%= f.label("female") %></h5>
   <%= f.submit("log into scholar") %>
 <% end %>

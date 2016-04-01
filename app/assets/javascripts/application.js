@@ -9,7 +9,6 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -20,28 +19,42 @@
 
 
 $(document).ready(function(){
-
+	
 	var activeWindow;
-
+	var flasher = document.getElementById('bright');
 	function closeModal() {
     	$('.window').fadeOut(500, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
     	$('#blind').fadeOut(500, function(){ $(this).remove(); });
-	}
+	};
 
-	flasher = document.getElementById('bright');
-	$(flasher).show().hide(3000);
+	function closeCal(){
+		$('.window_pane')
+
+		.animate({marginLeft: "-40%",
+			marginTop: "-35%"}, {duration: 1000, 
+				specialEasing:{
+					marginLeft: "linear",
+					marginTop: "linear"
+				}});
+		$('#blind').fadeOut(1000, function(){$(this).remove(); });
+	};
+
+	if (flasher.childNodes[1].innerHTML !== "") {$('#bright').show().hide(3000);};
+	
 
 	$('#termie').on('click', function(e){
 		e.preventDefault();
-		acitveWindow = $('.window')
-		.css('top','41%')
-		.css('left', '57%')
-		.css('opacity', 0)
-		.css('display', 'block')
-		.fadeTo(500, 0.8);
+		activeWindow = $('.window')
+			.css('background-color', '#B7B9B5')
+			.css('top','41%')
+			.css('left', '57%')
+			.css('opacity', 0)
+			.css('display', 'block')
+			.fadeTo(500, 0.8);
+
 		$('#boxing').css('display', 'block');
 		$('body').append('<div id="blind"></div>');
-		$('#blind').css('position', 'fixed')
+		$('#blind').attr('position', 'fixed');
 		$('#modal')
 		        .find('#blind')
 		        .css('opacity', '0')
@@ -51,9 +64,76 @@ $(document).ready(function(){
 		     });
 	});
 
-	$('introduction').css('')
 	$('.close').on('click', function(e){
 		e.preventDefault();
 		closeModal();
 	});
+
+	$('#g_cal').on('click', function(e){
+		e.preventDefault();
+		calendar_window = $('.window_pane')
+		.attr('position', 'absolute')
+		.css('z-index', 10000)
+		.animate(
+			{marginLeft: "+1%",marginTop: "+0.5%"},
+			{duration: 1500,
+				specialEasing:{
+					marginLeft: "easeOutBounce",
+					marginTop: "easeOutBounce"
+				}}
+		)
+		.removeAttr('top')
+		.removeAttr('left');
+		
+
+		$('body').append('<div id="blind"></div>');
+	});
+
+	$('.close_side').on('click', function(e){
+		e.preventDefault();
+		closeCal();
+	});
+
+	var progress = document.getElementsByClassName('progress');
+
+	for (var i = progress.length - 1; i >= 0; i--) {
+		progress[i].style = "margin: 25px;"
+	};
+
+	$('.select_form').change(function(){
+		student = document.getElementsByTagName('select')[0].getAttribute('id');
+		$.ajax({
+				url: "http://localhost:3000/scholarships_students/".concat(student),
+				type: "GET",
+				dataType: "script",
+				cache: true,
+				success: function(){alert('success!')},
+				// data: {select_tag_value: $('#form option:selected').text()}
+			})
+		});
+
+
 });
+	var list = {
+		order: function(){
+			$.ajax({
+				url: "http://localhost:3000/scholarships_students/".concat(student),
+				type: "GET",
+				dataType: "script",
+				cache: true,
+				success: function(){alert('success!')},
+				// data: {select_tag_value: $('#form option:selected').text()}
+			})
+		}
+	}
+
+
+// $('#form').on('change', function(){
+// 	console.log('show meeeee pleaseeeeee');
+// 	alert('this function actually has worked!');
+// 	$.ajax({
+// 		url: "<%= j(scholarships_students/index(params[@student.id])) %>",
+// 		type: "GET",
+// 		success: function(){alert('success!')}
+// 	});
+// });

@@ -1,9 +1,14 @@
 <div class="simple-calendar">
-  <%= link_to "Previous", url_for(params.merge(start_date: date_range.first - 1.day)), remote: true %>
-  <span style="font-size: 22px;"><em><b><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></b></em></span>
-  <%= link_to "Next", url_for(params.merge(start_date: date_range.last + 1.day)), remote: true  %>
-
-  <table class="table table-striped">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 right-jus">
+      <%= link_to "Previous", url_for(params.merge(start_date: date_range.first - 1.day)), remote: true %>
+      <span style="font-size: 22px;"><em><b><%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %></b></em></span>
+      <%= link_to "Next", url_for(params.merge(start_date: date_range.last + 1.day)), remote: true  %>
+      </div>
+  </div>
+</div>
+  <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
@@ -19,10 +24,10 @@
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                 <% capture_haml do %>
-                  <% block.call day, sorted_events.fetch(day, []) %>
+                  <% block.call day.day, sorted_events.fetch(day, []) %>
                 <% end %>
               <% else %>
-                <% block.call day, sorted_events.fetch(day, []) %>
+                <% block.call day.day, sorted_events.fetch(day, []) %>
               <% end %>
             <% end %>
           <% end %>

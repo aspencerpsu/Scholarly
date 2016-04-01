@@ -1,5 +1,5 @@
 correct_setting = "<%= j(@correct_date) %>";
-$('#gpa_sch<%= @val.id %>').html("<%= j(render partial: 'scholarships_students/unfollow', locals: {val: @val, i: @i}) %>");
+$('#gpa_sch<%= @val.id %>').html("<%= j(render partial: 'scholarships_students/unfollow', locals: {val: @val, ind: @ind}) %>");
 
 var my_day = document.getElementsByClassName('day <%= j(@together) %>');
 // receive the text content within the cell grid

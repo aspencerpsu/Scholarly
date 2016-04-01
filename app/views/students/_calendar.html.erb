@@ -1,6 +1,6 @@
 <%= month_calendar events: @events do |date, meetings| %>
 	<%= date %>
-	<div>
+	<div class="day_instance">
 		<ul>
 	<% meetings.each do |meetings| %>
 		<% if Date.today >= meetings.deadline %>

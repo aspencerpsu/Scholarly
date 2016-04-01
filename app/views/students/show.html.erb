@@ -14,43 +14,62 @@
 	</nav>
 </header>
 
-<h1>Welcome back <%= @student.name %>!</h1>
+<div class="wrapper container gutter">
+	<h1>Welcome back <%= @student.name %>!</h1>
 
-<div id="modal">
-	<div class = "window">
-		<div id="boxing">
-			<%= render 'students/terminate' %>
-			<a href="#stuff" class="close">Close?</a>
+	<div id="modal">
+		<div class = "window">
+			<div id="boxing">
+				<%= render 'students/terminate' %>
+				<a href="#stuff" class="close">Close?</a>
+			</div>
 		</div>
 	</div>
-</div>
 
 
-<% if @student.gpa.nil? || @student.location.nil? %>
-	<h1>Your profile isn't completed, please take the time to finish your profile to gain more chances for funding</h1>
-	<%= link_to "Finish My Profile!", edit_student_path %>
-<% else %>
-	<h2>Please note: The following scholarship deadlines are approaching</h2>
-	<h2>Take the time to review the following to determine your eligibility!</h2>
-<% end %>
+	<% if @student.gpa.nil? || @student.location.nil? %>
+		<h1>Your profile isn't completed, please take the time to finish your profile to gain more chances for funding</h1>
+		<%= link_to "Finish My Profile!", edit_student_path %>
+	<% else %>
+		<h2>Please note: The following scholarship deadlines are approaching</h2>
+		<h2>Take the time to review the following to determine your eligibility!</h2>
+		<a href="#" id="g_cal">Review The Eligible Awards</a>
+	<% end %>
 
-<% @i = 1 %>
-<% @scholarships.each do |val| %>
-
-	<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
-		<h2><b> Scholarship <%= "#{@i}" %>: </b></h2>
-		<p>Name: <div style="text-indent: 30px;"><%= val.name %></div></p>
-		<p>Deadline: <div style="text-indent: 30px;"><%= val.deadline %></div></p>
-		<p>Value:  <div style="text-indent: 30px;"><%= val.value %></div></p>
-		<p>GPA worth: <div style="text-indent: 30px;"><%= val.gpa %></div></p>
-		<%= render partial: "scholarships_students/tracking", locals: {val: val} %>
-		
+	<div class="window_pane">
+		<%= render partial: "scholarships_students/index", locals: {scholarships: @scholarships, student: @student.id} %>
+		<a href="#" class="close_side"><div class="glyphicon glyphicon-remove close_side" style="width=30px;height=30px;float:right">
+		</div></a>
+		<div class="page-header">
+			<h1>Unique scholarships</h1>
+						<small>Each provides details compatible to who you are and the amounts substantial to your profile</small>
+		</div>
+	<% @scholarships.each_with_index do |val, ind| %>
+			<div class="gpa_sch" id = "gpa_sch<%= val.id %>">
+				<% percentage = (val.studentfollowers.length/Student.all.length)*100 %>
+				<th><h2><b> Scholarship <%= "#{ind + 1}" %>: </b></h2></th>
+					<td><p>Name: <div style="text-indent: 30px;text-align:center;"><%= val.name %></div></p></td>
+					<td><p>Deadline: <div style="text-indent: 30px;text-align: center;"><%= val.deadline.to_date %></div></p></td>
+					<td><p>Value:  <div style="text-indent: 30px; text-align: center;"><%= val.value %></div></p></td>
+					<td><p>GPA worth: <div style="text-indent: 30px; text-align: center;"><%= val.gpa %></div></p></td>
+					<td><%= render partial: "scholarships_students/tracking", locals: {val: val, ind: (ind + 1)} %>
+					</td>
+					<td>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=<%= percentage.to_s %> aria-valuemin="0" aria-valuemax="100" style="width: #{percentage}%; min-width: 7em; font-size: 71%">
+								<%= ((val.studentfollowers.length/Student.all.length)*100).to_s %>% of students have applied
+							</div>
+						</div>
+					</td>
+			</div>
+	<% end %>
+	<a href="#"class="close_side">Go Back</a>
 	</div>
-	<% @i = @i + 1 %>
-<% end %>
 
-<h1>Calendar of Scholarships</h1>
-<h4>Here's a listing of the available scholarships on your calendar</h4>
-<div id="event_calendar">
-	<%= render partial: "calendar", locals: {events: @events} %>
+	<h1>Calendar of Scholarships</h1>
+	<h4>Here's a listing of the available scholarships on your calendar</h4>
+	<div id="event_calendar">
+		<%= render partial: "calendar", locals: {events: @events} %>
+	</div>
+
 </div>

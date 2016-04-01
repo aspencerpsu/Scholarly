@@ -65,8 +65,30 @@ class StudentsController < ApplicationController
   def show
     @student = current_user
     @scholarships = Scholarship.where('gpa' <= @student.gpa.to_s); 
+    # Scholarship.last.deadline.beginning_of_week.at_midday
     @events = @student.followingfunds.all
     @savethang = ScholarshipsStudent.new
+    @notifications = Array.new()
+    # For each student's account of scholarships on hand if the scholarship isn't 
+    @student.followingfunds.each do |match|
+      if (match.deadline.to_date - Date.today()).to_s.to_i  <= 8
+        @notifications << match
+      end
+    end
+    @notifications.each do |notice|
+      s_title = notice.name 
+      s_value = notice.value 
+      s_deadline = notice.deadline
+
+      p s_title
+      p s_value
+      p s_deadline
+
+      if notice.deadline.beginning_of_week.at_midday == Time.zone.now.to_date
+        @new_client = APIS::Twilio.new(s_title, @student.name, s_deadlline, @student.cell, s_value)
+        @new_client.new_message(@new_client.title, @new_client.name, @new_client.deadline, @new_client.number, @new_client.value)
+      end
+    end
   end
 
   private

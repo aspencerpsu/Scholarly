@@ -1,0 +1,19 @@
+console.log('cleared');
+selected = $('.select_form').val();
+if (selected=="Value"){
+	$('.window_pane').html("<%= j(render partial: 'scholarships_students/show', locals: {scholarships: @amount_order, student: @student })%>");
+	alert('value function called');
+}
+else if (selected=="Value Smallest") {
+	$('.window_pane').html("<%= j(render partial: 'scholarships_students/show', locals: {scholarships: @amount_rev, student: @student})%>");
+	alert('value opposite is functionally adequate');
+}
+else if (selected=="Name") {
+	console.log("do nothing");
+	alert('this is nothing brah');
+}
+else{
+	$('.window_pane').html("<%= j(render partial: 'scholarships_students/show', locals: {scholarships: @deadline_order, student: @student}) %>");
+	alert('this is the last option');
+}
+
