@@ -1,9 +1,8 @@
-
 <header>
 	<nav class="navbar navbar-default navbar static top navbar inverse">
 		<div class="container-fluid">
 			<div class="logo_placement">
-				<%= link_to image_tag("/assets/hearts.png", :alt => 'logo', :title => 'home', :id => 'logo', :class => 'navbar-brand'), "/" %> 
+				<%= link_to image_tag("https://s3.amazonaws.com/scholarapptitude.herokuapp.com/hearts.png", :alt => 'logo', :title => 'home', :id => 'logo', :class => 'navbar-brand'), "/" %> 
 			</div>
 			<ul class="nav pills nav navbar-nav navbar-left" id="pills">
 				<li><%= link_to "Sign Up?", new_student_path %></li>
@@ -28,7 +27,7 @@
 	</div>
 	<div class="ideal_frames">
 		<div class = "mask">
-			<%= image_tag("/assets/africanAmericans.jpg") %>
+			<%= image_tag("https://s3.amazonaws.com/scholarapptitude.herokuapp.com/africanAmericans.jpg") %>
 		</div>
 	</div>
 </div>
@@ -43,7 +42,7 @@
 	</div>
 	<div class="ideal_frames">
 		<div class="mask">
-			<%= image_tag("/assets/100blackmen.jpg", :alt => 'image of students', :title => 'hs2', :class => 'students') %>
+			<%= image_tag("https://s3.amazonaws.com/scholarapptitude.herokuapp.com/100blackmen.jpg", :alt => 'image of students', :title => 'hs2', :class => 'students') %>
 		</div>
 	</div>
 </div>
