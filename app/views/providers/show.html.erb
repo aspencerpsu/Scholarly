@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-9">
+    <nav>
+      <%= link_to image_tag('https://s3.amazonaws.com/scholarapptitude.herokuapp.com/scholarship-in-hands.ico', :title => 'Home', :id => 'logo', :class => 'navbar-brand'), root_path %>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-md-9 ">
+		<div class="panel-heading">
+			<h1>Welcome to the site <%= @provider.title %></h1>
+			<p>You're safe to publish an unlimited amount of scholarships under your request</p>
+			<p>The headlining scholarship can be forwarded to the student following his or her credentials, the student could be notified on the status of the fund you're granting. Once the scholarship is no longer pending under the review, we can immediately distribute a notice to the students with banners representing if the candidate can further move on</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-9">
+		<div class="form form-control scholarship-maker" >
+			<%= render "scholarships/new" %>
+		</div>
+	</div>
+</div>

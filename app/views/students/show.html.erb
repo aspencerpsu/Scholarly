@@ -22,7 +22,7 @@
 	<div id="modal">
 		<div class = "window">
 			<div id="boxing">
-				<%= render 'students/terminate' %>
+				<%= render partial: 'students/terminate', locals: {providers_scholarship: @providers_scholarship} %>
 				<a href="#stuff" class="close">Close?</a>
 			</div>
 		</div>

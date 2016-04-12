@@ -1,9 +1,11 @@
 Rails.application.configure do
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-
+  config.cache_store = :dalli_store
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -76,4 +78,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  client = Dalli::Client.new((ENV["MEMCAHIER_SERVERS"] || "").split(","),
+                              :username => ENV["MEMCACHIER_USERNAME"]
+                               :password => ENV["MEMCACHIER_PASSWORD"],
+                               :failover => true,
+                               :socket_timeout => 1.5,
+                               :socket_failure_delay => 0.2,
+                               :value_max_bytes => 10485760) 
+  config.action_dispatch.rack_cache = {
+    :metastore => client,
+    :entitystore => client
+  }
+
+  config.static_cache_control = "public, max-age=259200"
 end

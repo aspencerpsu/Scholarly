@@ -10,8 +10,8 @@ class ScholarshipsStudentsController < ApplicationController
   def show
     @student = current_user
     @deadline_order = Scholarship.where('gpa' <= @student.gpa.to_s).order('deadline')
-    @amount_order =  Scholarship.where('gpa' <= @student.gpa.to_s).order('value')
-    @amount_rev = Scholarship.where('gpa' <= @student.gpa.to_s).order('value').reverse
+    @amount_order =  Scholarship.where('gpa' <= @student.gpa.to_s).sort_by{|own| own.value.match(/\A\${1}/)? own.value.slice(0).to_f : own.value.to_f }
+    @amount_rev = Scholarship.where('gpa' <= @student.gpa.to_s).reverse_order('value')
     @name_order = Scholarship.where('gpa' <= @student.gpa.to_s).order('name')
     @savethang = ScholarshipsStudent.new
     p "++++++++++++++++++++++++++++++++++++++++"

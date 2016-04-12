@@ -1,0 +1,16 @@
+<%= form_for @providers_scholarship do |f| %>
+  <%= f.label("The Deadline For The Award") %>
+  <%= f.datetime_local_field(:deadline, min: Time.now().to_s.slice(0,10) ) %>
+  <%= f.label("The Name Of The Fund") %>
+  <%= f.text_field(:name) %>
+  
+  <%= f.label("Type Of Fund") %>
+  <%= f.text_field(:scholarship) %>
+  <%= f.label("Contributable Amount") %>
+  <%= f.text_field(:value, pattern: "[0-9]+\.(0){2}", title: "format should reflect \'xxxxx.xx\' with no symbols like \'$\', \',\'") %>
+
+  <%= f.label("GPA Considertations") %>
+  <h6><span style"font-style:italics">If No GPA is worth consideration, then submit  0.0 for this fund</span></h6>
+  <%= f.number_field(:gpa, in: 0.0..4.0, step: 0.01) %>
+  <%= f.submit("submit") %>
+<% end %>

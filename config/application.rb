@@ -23,5 +23,10 @@ module ScholarApp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths << Rails.root.join('lib')
+
+    
+    # Used to store simple key-value pair for the local hardware
+    config.cache_store = :dalli_store
+    
   end
 end

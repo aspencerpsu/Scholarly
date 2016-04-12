@@ -4,14 +4,28 @@ class ScholarshipsController < ApplicationController
 
   end
 
+  def new
+    @scholarship = Scholarship.new
+    @provider = Provider.new
+  end
+
   def show
 
   end
 
   def create
-  	
-  end
+    @provider = current_provider
+  	@providers_scholarship = Scholarship.new(scholarship_params)
 
+    if @providers_scholarship.save
+      @providers_scholarship.update(provider_id: @provider.id)
+      flash[:notice] = "Successful new scholarship in under your watch"
+      redirect_to :back
+    else
+      flash[:notice] = "Error Processing Your Request"
+      redirect_to @provider
+    end 
+  end
   def instance
 
   end
@@ -28,6 +42,10 @@ class ScholarshipsController < ApplicationController
   		# redirect_to @student
   	end
   end
+  private 
+  def scholarship_params
+    params.require(:scholarship).permit(:name, :scholarship, :value, :gpa, :deadline)
+  end
 
   def remove
   	@student = current_user
@@ -35,4 +53,5 @@ class ScholarshipsController < ApplicationController
     @scholarship.delete
     redirect_to @student
   end
+
 end

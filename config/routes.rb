@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :scholarships_students
   resources :students 
   resources :providers
+
   post '/keepfollowing/:id', to: 'scholarships#follow', as: :follow
   post  '/removescholarship/:id', to: 'scholarships#remove', as: :remove
   get '/terminateuser', to: 'students#terminate', as: :terminate

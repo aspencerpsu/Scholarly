@@ -1,13 +1,11 @@
 class Scholarship < ActiveRecord::Base
 	has_many :scholarships_students
 	has_many :studentfollowers, through: :scholarships_students, source: :student
-	before_save :run_strip
+	validates :value, format: { without: /\A\${1}/ && /\,/,
+    message: "only allows numbers" }
+    validates :value, numericality: true
 
 	def start_time
 		self.deadline
-	end
-
-	def run_strip()
-		self.value.gsub!(/\$?/, "")
 	end
 end

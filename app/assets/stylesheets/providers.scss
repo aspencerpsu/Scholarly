@@ -13,8 +13,14 @@ $default-magenta: #E422B9;
 .provider-form{
 	color: $default-black;
 	width: 600px;
-	height: 200px;
+	height: 400px;
 	margin-left: 85px;
 	background-color: $default-magenta;
 	box-shadow: 10px 10px 5px $default-gray;
+}
+
+.form-control{
+	width: 100%;
+	height: 100%;
+	margin-left: 50%;
 }

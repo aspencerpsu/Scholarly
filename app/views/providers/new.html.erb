@@ -1,2 +1,22 @@
-<h1>Providers#new</h1>
-<p>Find me in app/views/providers/new.html.erb</p>
+<div class="row">
+	<div class="col-md-8 col-xs-8 outershell">
+	<header>New Account Form</header>
+	<p>To Create a New Account with us, please place the information below to register a scholarship </p>
+		<%= form_for @provider, :html => {class: "form_control provider-form"} do |f| %>
+				<%= f.label("Professional Title Name?") %>
+				<%= f.text_field(:title) %>
+				<%= f.label("Email Address") %>
+				<%= f.text_field(:email) %>
+				<%= f.label("Company Field/Market You're In?") %>
+		  		<%= f.text_field(:industry) %>
+		  		<%= f.label("Your Password Field") %>
+		  		<%= f.password_field(:password) %>
+				<%= f.submit(:submit) %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-xs-8 disclaimer">
+		<p><span style = "style: italics;font-size: 8px">Under our guidelines, we at scholarapptitude we will not spam your folder with irrevalant information in your box with promotions for more sponsorships. This website is strictly for the students and is soley a non-profit organization seeking to enhance the students who wish to find a better opportunity to fund themselves throughout school.</span></p>
+	</div>
+</div>
