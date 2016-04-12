@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402005751) do
+ActiveRecord::Schema.define(version: 20160412181127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160402005751) do
     t.datetime "deadline"
     t.decimal  "gpa",         default: 0.0
     t.integer  "provider_id"
+    t.string   "directlink"
   end
 
   add_index "scholarships", ["provider_id"], name: "index_scholarships_on_provider_id", using: :btree
