@@ -80,7 +80,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   client = Dalli::Client.new((ENV["MEMCAHIER_SERVERS"] || "").split(","),
-                              :username => ENV["MEMCACHIER_USERNAME"]
+                              :username => ENV["MEMCACHIER_USERNAME"],
                                :password => ENV["MEMCACHIER_PASSWORD"],
                                :failover => true,
                                :socket_timeout => 1.5,
