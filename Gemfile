@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+# used for visibily looking at the calendar from the user's perspective
+gem "input_calendar"
 
 gem 'json'
 gem 'jquery-turbolinks'
@@ -40,6 +42,14 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
 
 gem 'jwt', '~> 1.5', '>= 1.5.4'
+# gem for compatability for the input calendar in rails
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+
+
+# Used for persisting storage data for errors on client's behalf
+gem 'rack-cache'
+# Used for above gemfile
+gem 'dalli'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
