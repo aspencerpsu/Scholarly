@@ -115,32 +115,38 @@ function closeList(){
 		$('#blind').fadeOut(1000, function(){$(this).remove(); });
 	};
 
-	var list = {
+var list = {
 
-		order: function(){
-			var student = document.getElementsByClassName('form-control')[0].id;
-			$.ajax({
-				url: "http://localhost:3005/scholarships_students/".concat(student),
-				type: "GET",
-				dataType: "script",
-				cache: true,
-				success: function(){
+	order: function(){
+		var student = document.getElementsByClassName('form-control')[0].id;
+		$.ajax({
+			url: "http://localhost:3005/scholarships_students/".concat(student),
+			type: "GET",
+			dataType: "script",
+			cache: true,
+			success: function(){
 
-					$('.new_close_side').on('click', function(e){
-						e.preventDefault();
-						closeList();
-					});},
-			})
-		}
+				$('.new_close_side').on('click', function(e){
+					e.preventDefault();
+					closeList();
+				});},
+		})
 	}
+};
+
+$('#scholarship_datetime').attr('class', 'calendar');
+// Check the scholarships that don't have the correct dates for the schlolarships or 
+// the value syntax is incorrect within the textbox
+var incorect_setting= document.createElement('li');
+
+var _measuredate = new Date();
+var correct_deadline = document.getElementById('scholarship_deadline');
+var correct_fund = document.getElementById('scholarship_value');
+var provider_form = document.getElementsByClassName('new_scholarship')[0];
+
+$('#new_scholarship').on('submit', function(e){
+	e.preventDefault;
+	console.log('working');
+});
 
 
-// $('#form').on('change', function(){
-// 	console.log('show meeeee pleaseeeeee');
-// 	alert('this function actually has worked!');
-// 	$.ajax({
-// 		url: "<%= j(scholarships_students/index(params[@student.id])) %>",
-// 		type: "GET",
-// 		success: function(){alert('success!')}
-// 	});
-// });
