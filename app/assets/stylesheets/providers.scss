@@ -1,3 +1,20 @@
 // Place all the styles related to the providers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$magenta-color: #ff0066;
+$default-black: #000000;
+$default-gray: #8C8C8C;
+$default-magenta: #E422B9;
+
+.outershell{
+
+}
+
+.provider-form{
+	color: $default-black;
+	width: 600px;
+	height: 200px;
+	margin-left: 85px;
+	background-color: $default-magenta;
+	box-shadow: 10px 10px 5px $default-gray;
+}
