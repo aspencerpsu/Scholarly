@@ -111,9 +111,9 @@ body{
 }
 
 #pills{
-	float: right;
-	font-family: times;
-	width: 500px;
+    float: right;
+    font-family: times;
+    width: 525px;
 }
 
 #pills:hover{

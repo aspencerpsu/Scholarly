@@ -1,22 +1,31 @@
 <div class="row">
 	<div class="col-md-8 col-xs-8 outershell">
-	<header>New Account Form</header>
+	<%= link_to "Go Back", root_path, class: "fr" %>
+	<header class="page-header returning-header">New Account Form</header>
 	<p>To Create a New Account with us, please place the information below to register a scholarship </p>
-		<%= form_for @provider, :html => {class: "form_control provider-form"} do |f| %>
+		<%= form_for @provider, :html => {class: "form-controller-provider provider-form"} do |f| %>
+			<div class="form-group">
 				<%= f.label("Professional Title Name?") %>
-				<%= f.text_field(:title) %>
+				<%= f.text_field(:title, :class => "form-control") %>
+			</div>
+			<div class="form-group">
 				<%= f.label("Email Address") %>
-				<%= f.text_field(:email) %>
+				<%= f.text_field(:email, :class => "form-control") %>
+			</div>
+			<div class="form-group">
 				<%= f.label("Company Field/Market You're In?") %>
-		  		<%= f.text_field(:industry) %>
+		  		<%= f.text_field(:industry, :class => "form-control") %>
+		  	</div>
+		  	<div class="form-group">
 		  		<%= f.label("Your Password Field") %>
-		  		<%= f.password_field(:password) %>
-				<%= f.submit(:submit) %>
+		  		<%= f.password_field(:password, :class => "form-control") %>
+		  	</div>
+				<%= f.submit(:submit, :class => "btn btn-default") %>
 		<% end %>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12 col-xs-8 disclaimer">
-		<p><span style = "style: italics;font-size: 8px">Under our guidelines, we at scholarapptitude we will not spam your folder with irrevalant information in your box with promotions for more sponsorships. This website is strictly for the students and is soley a non-profit organization seeking to enhance the students who wish to find a better opportunity to fund themselves throughout school.</span></p>
+		<p><span style = "style: italics;font-size: 8px">Under our guidelines, we at scholarapptitude we will not spam your folder with irrelevant information in your box with promotions for more sponsorships. This website is strictly for the students and is solely a non-profit organization seeking to enhance the students who wish to find a better opportunity to fund themselves throughout school.</span></p>
 	</div>
 </div>

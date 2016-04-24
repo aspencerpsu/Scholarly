@@ -51,6 +51,10 @@ gem 'rack-cache'
 # Used for above gemfile
 gem 'dalli'
 
+gem 'mailgun'
+
+gem 'rest-client'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

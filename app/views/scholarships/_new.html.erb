@@ -1,3 +1,4 @@
+<HEADER>File your scholarship within this form</HEADER>
 <%= form_for @providers_scholarship do |f| %>
   <%= f.label("The Deadline For The Award") %>
   <%= f.datetime_local_field(:deadline, min: Time.now().to_s.slice(0,10) ) %>
@@ -9,10 +10,11 @@
   <%= f.label("Contributable Amount") %>
   <%= f.text_field(:value, pattern: "[0-9]+\.(0){2}", title: "format should reflect \'xxxxx.xx\' with no symbols like \'$\', \',\'") %>
   <h6>Provide a direct URL of the scholarship for students to directly apply online</h6>
-  <%= f.label("Link To Apply") %>
+  <%= f.label("url direct path") %>
   <%= f.url_field(:directlink) %>
   <%= f.label("GPA Considertations") %>
   <h6><span style"font-style:italics">If No GPA is worth consideration, then submit  0.0 for this fund</span></h6>
   <%= f.number_field(:gpa, in: 0.0..4.0, step: 0.01) %>
+  <%= f.label(" ") %>
   <%= f.submit("submit") %>
 <% end %>

@@ -1,19 +1,36 @@
-<h1>Create A New Account!</h1>
+<div class="row">
+   <%= link_to "Go Back", root_path, :class => "fl" %>
+    <div class="col-md-6 student-first">
+        <h1 class="page-header">Create A New Account With Us!</h1>
+        <div>
+            <h5>In order to create a personal match-making guarantee, it's important to gather a few details on you're background to search for scholarships that are unique to you yourself as an individual</h5>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8" style="margin: 0 auto;">
+      <%= form_for @student, :html => {class: "form-controller-student"} do |f| %>
+        <div class="form-group">
+            <%= f.label("email") %>
+            <%= f.text_field(:email) %>
+        </div>
+        <div class="form-group">
+             <%= f.label("name") %>
+             <%= f.text_field(:name) %>
+        </div>
+        <div class ="form-group">
+            <%= f.label("password") %>
+            <%= f.password_field(:password) %>
+        </div>
+        <div class="form-group">
+            <%= f.label("gender") %>
+            <%= f.radio_button(:gender, "male") %>
 
-
-<div class="col-md-1" style="margin: 0 auto;">
-  <%= form_for @student do |f| %>
-    <h5><%= f.label("email") %><h5>
-    <%= f.text_field(:email) %>
-    <h5><%= f.label("name") %></h5>
-    <%= f.text_field(:name) %>
-    <h5><%= f.label("password") %></h5>
-    <%= f.password_field(:password) %>
-    <h5><%= f.label("gender") %></h5>
-    <%= f.radio_button(:gender, "male") %>
-    <h5><%= f.label("male") %></h5>
-    <%= f.radio_button(:gender, "female") %>
-    <h5><%= f.label("female") %></h5>
-    <%= f.submit("log into scholar") %>
-  <% end %>
+            <%= f.label("male") %>
+            <%= f.radio_button(:gender, "female") %>
+            <%= f.label("female") %>
+        </div>
+        <%= f.submit("Enter", :class => "btn btn default") %>
+      <% end %>
+    </div>
 </div>

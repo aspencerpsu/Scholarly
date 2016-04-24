@@ -10,17 +10,70 @@ $default-magenta: #E422B9;
 
 }
 
-.provider-form{
-	color: $default-black;
-	width: 600px;
-	height: 400px;
-	margin-left: 85px;
-	background-color: $default-magenta;
-	box-shadow: 10px 10px 5px $default-gray;
+.fr{
+    float: left;
+    margin-top: 17px;
 }
 
-.form-control{
-	width: 100%;
-	height: 100%;
-	margin-left: 25%;
+.returning-header{
+    font:{
+        weight: bold;
+        size: 30px;
+    }
+}
+
+.form-controller-provider {
+    color: $default-black;
+    margin-left: 20px;
+    background-color: $magenta-color;
+    box-shadow: 10px 10px 5px $default-gray;
+    width: 300px;
+    height: 440px;
+    padding: 25px;
+     header{
+    	  	margin-left: 2%;
+    		margin-bottom: 6%;
+    		font-size: 15px;
+   		    font-weight: 700;
+    		border-bottom: 4px solid black;
+    		padding-left: 7px;
+    }
+    input:last-child{
+         margin-top: 15px;
+         margin-right: -15px;
+         float: right;
+    }
+
+    .form-group{
+        label{
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+    }
+}
+
+.new_scholarship{
+	width: 65%;
+    line-height: 200%;
+    height: 100%;
+    margin-left: 15px;
+   
+    input:last-child{
+   	 	margin-top: 12%;
+    	margin-left: 120%;
+    }
+    label:last-child{
+		color: #FFFFFF
+    }
+}
+
+.row{
+	margin-left: 19px;
+	margin-right: -15px;
+    .disclaimer{
+        width: 20%;
+        margin-left: 10px;
+        padding: 25px;
+        margin-top: 20px;
+    }
 }

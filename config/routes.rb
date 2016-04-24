@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   post  '/removescholarship/:id', to: 'scholarships#remove', as: :remove
   get '/terminateuser', to: 'students#terminate', as: :terminate
 
-  get '/provider', to: 'home#lender'
-  get "/mailto", to: 'home#mailto'
+  get "/provider", to: 'home#lender'
+
+  post "/mailto", to: 'home#mailto'
+  
   get '/contact', to: 'home#contact', as: 'contact'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/login', to: 'sessions#new'

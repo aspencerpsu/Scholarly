@@ -1,3 +1,33 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$magenta-color: #ff0066;
+$default-black: #000000;
+$default-gray: #8C8C8C;
+$default-magenta: #E422B9;
+
+.fl{
+	float: left;
+	margin-top: 28px;
+
+}
+
+.form-controller{
+	background-color: $magenta-color;
+	width: 300px;
+	height: 250px;
+	box-shadow: 10px 10px 10px $default-gray;
+	.spacing{
+		margin-top: 10px;
+		label{
+			padding-left: 20px;
+		}
+	}
+	input:last-child{
+		float: right;
+	}
+}
+
+.login{
+	clear: both;
+}

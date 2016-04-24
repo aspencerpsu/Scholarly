@@ -14,9 +14,11 @@
    src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
 </head>
 <body>
+<div class="container-fluid">
 <div class="flash" id="bright">
-	<h5><%= flash[:notice] if flash[:notice] %></h5>
+  <h5><%= flash[:notice] if flash[:notice] %></h5>
 </div>
 	<%= yield %>
+</div>
 </body>
 </html>

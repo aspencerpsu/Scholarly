@@ -1,9 +1,31 @@
-<div class="questions">
-	<%= form_tag("/mailto", :method => "post") do %>
-	  <%= label_tag(:query, "Questions? Email Akeem Spencer") %>
-	  <%= text_field_tag(:query) %>
-	  <%= label_tag(:message, "Email Address") %>
-	  <%= text_area_tag(:message, "Send your questions here", size: "24x6") %>
-	  <%= submit_tag("Send") %>
-	<% end %>
+<header>
+	<nav class="navbar navbar-default navbar static top navbar inverse">
+		<div class="container-fluid">
+			<div class="logo_placement">
+				<%= link_to image_tag("https://s3.amazonaws.com/scholarapptitude.herokuapp.com/hearts.png", :alt => 'logo', :title => 'home', :id => 'logo', :class => 'navbar-brand'), "/" %> 
+			</div>
+			<ul class="nav pills nav navbar-nav navbar-left" id="pills">
+				<li><%= link_to "Sign Up?", new_student_path %></li>
+				<li><%= link_to "Sign In?", login_path %></li>
+				<li><%= link_to "Interested Donors", new_provider_path %></li>
+				<li><%= link_to "Returning Donors", login_path %></li>
+				<li><%= link_to "Contact Us", contact_path %></li>
+			</ul>	
+		</div>
+	</nav>
+</header>
+
+<div class="col-md-9">
+	<div class="questions">
+		<%= form_tag("/mailto", :method => "post") do %>
+		  <%= label_tag("Questions? Email aspencerpsu@gmail.com, or place any questions you have for us below") %>
+		  <%= label_tag("Email Address") %>
+		  <%= email_field(:email, "address") %>
+		  <h6>Subject Line</h6>
+		  <%= text_field_tag(:subject) %>
+		  <%= label_tag("Body Below") %>
+		  <%= text_area_tag(:text, "\s\s\s", size: "48x10", maxlength: "2000", placeholder: "enter your questions in this blank") %>
+		  <%= submit_tag("Send") %>
+		<% end %>
+	</div>
 </div>

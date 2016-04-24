@@ -3,7 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // background-color is set to white
 
+$magenta-color: #ff0066;
+$default-black: #000000;
+$default-gray: #8C8C8C;
+$default-magenta: #E422B9;
 $background-white: #ffffff;
+
+.form-controller-student{
+	width: 400px;
+    height: 268px;
+    box-shadow: 10px 10px 10px #8C8C8C;
+    background-color: $magenta-color;
+    margin-left: 10px;
+    padding: 53px;
+	input:last-child{
+		float: right;
+	}
+}
 
 .window_pane{
 	width: 33%;
@@ -36,6 +52,9 @@ $background-white: #ffffff;
 	text-align-last: right;
 }
 
+.student-first{
+	clear: both;
+}
 // For the calendar, let's make it look somewhat decent here
 
 // just remember to add those few elements to calander to prevent stretching on the grid.
